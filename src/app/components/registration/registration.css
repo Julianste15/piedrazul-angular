@@ -1,0 +1,85 @@
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.h-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  border-radius: 2px;
+}
+
+.modern-input {
+  border: none;
+  border-bottom: 2px solid #e2e8f0;
+  border-radius: 0;
+  padding: 10px 0;
+  background: transparent !important;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.modern-input:focus {
+  box-shadow: none;
+  border-bottom-color: #1a365d;
+  background: transparent !important;
+}
+
+.modern-input::placeholder {
+  color: #a0aec0;
+  font-size: 0.95rem;
+}
+
+.custom-check .form-check-input:checked {
+  background-color: #1a365d;
+  border-color: #1a365d;
+}
+
+.custom-check-box .form-check-input:checked {
+  background-color: #0d9488;
+  border-color: #0d9488;
+}
+
+.btn-register-cta {
+  background: #1a365d;
+  color: white;
+  padding: 15px 50px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-register-cta:hover {
+  background: #2a5298;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(26, 54, 93, 0.3) !important;
+}
+
+.pulse-icon {
+  animation: pulse 1.5s infinite;
+  display: inline-block;
+}
+
+@keyframes pulse {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.x-small {
+  font-size: 0.75rem;
+}
+
+/* Soporte para modo inválido de Bootstrap */
+.modern-input.is-invalid {
+    border-bottom-color: #dc3545;
+}

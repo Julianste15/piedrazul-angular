@@ -1,0 +1,42 @@
+<div class="container-fluid" id="seccion2">
+  <div class="row">
+
+    <!-- Barra lateral con lista de especialidades médicas -->
+    <aside class="col-12 col-sm-2 col-md-4 mb-4">
+      <h2>Especialidades</h2>
+      <ul class="list-group" id="lista-especialidades">
+        <li *ngFor="let esp of especialidades" 
+            class="list-group-item list-group-item-action" 
+            style="cursor:pointer;" 
+            [class.active]="esp === especialidadSeleccionada"
+            [class.bg-primary]="esp === especialidadSeleccionada"
+            [class.text-white]="esp === especialidadSeleccionada"
+            (click)="seleccionarEspecialidad(esp)">
+          {{ esp.nombre }}
+        </li>
+      </ul>
+      <!-- Recuadro informativo dinámico para mostrar la descripción de la especialidad seleccionada -->
+      <div *ngIf="especialidadSeleccionada" id="desc-box" class="alert alert-info mt-3" role="alert">
+        {{ especialidadSeleccionada.descripcion }}
+      </div>
+    </aside>
+
+    <!-- Grid de tarjetas de médicos -->
+    <main class="col-12 col-sm-10 col-md-8">
+      <h2>Nuestros Médicos</h2>
+      <div class="row g-3">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let doc of medicos">
+          <div class="card border h-100">
+            <img [src]="doc.imagen" class="card-img-top img-fluid" [alt]="doc.nombreCompleto">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ doc.nombreCorto }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ doc.especialidad }}</h6>
+              <p class="card-text">{{ doc.descripcion }}</p>
+              <button class="btn btn-primary mt-auto">Agendar cita</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container-fluid py-5" id="seccion3">
+  <div class="row justify-content-center">
+    <div class="col-md-9 col-lg-7 col-xl-6">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold text-primary mb-2">Registro de Nuevos Usuarios</h2>
+        <div class="h-divider mx-auto mb-3"></div>
+        <p class="lead text-muted">
+          Únete a la mejor atención médica. Recibirás tu confirmación por <strong>Correo Electrónico</strong>.
+        </p>
+      </div>
+
+      <!-- Formulario con Glassmorphism -->
+      <div class="glass-card p-4 p-md-5">
+        <form [formGroup]="registroForm" (ngSubmit)="registrarUsuario()" [class.was-validated]="formIntentado" novalidate>
+          
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label for="nombres" class="form-label small fw-bold text-uppercase text-secondary">
+                <i class="fas fa-user me-2"></i>Nombres (*)
+              </label>
+              <input type="text" id="nombres" formControlName="nombres" class="form-control modern-input" placeholder="Sus nombres"
+                     [class.is-invalid]="registroForm.get('nombres')?.invalid && (registroForm.get('nombres')?.dirty || registroForm.get('nombres')?.touched)">
+              <div class="invalid-feedback">Este campo es obligatorio.</div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <label for="apellidos" class="form-label small fw-bold text-uppercase text-secondary">
+                <i class="fas fa-signature me-2"></i>Apellidos (*)
+              </label>
+              <input type="text" id="apellidos" formControlName="apellidos" class="form-control modern-input" placeholder="Sus apellidos"
+                     [class.is-invalid]="registroForm.get('apellidos')?.invalid && (registroForm.get('apellidos')?.dirty || registroForm.get('apellidos')?.touched)">
+              <div class="invalid-feedback">Este campo es obligatorio.</div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="correo" class="form-label small fw-bold text-uppercase text-secondary">
+              <i class="fas fa-envelope me-2"></i>Correo Electrónico (*)
+            </label>
+            <input type="email" id="correo" formControlName="correo" class="form-control modern-input" placeholder="ejemplo@clinica.com"
+                   [class.is-invalid]="registroForm.get('correo')?.invalid && (registroForm.get('correo')?.dirty || registroForm.get('correo')?.touched)">
+            <div class="invalid-feedback">Ingrese un correo electrónico válido.</div>
+          </div>
+
+          <fieldset class="mb-4">
+            <legend class="form-label small fw-bold text-uppercase text-secondary" style="font-size: 0.85rem;">
+              <i class="fas fa-venus-mars me-2"></i>Género (*)
+            </legend>
+            <div class="d-flex gap-3 mt-2">
+              <div class="form-check custom-check">
+                <input class="form-check-input" type="radio" id="femenino" formControlName="genero" value="femenino">
+                <label class="form-check-label" for="femenino">Femenino</label>
+              </div>
+              <div class="form-check custom-check">
+                <input class="form-check-input" type="radio" id="masculino" formControlName="genero" value="masculino">
+                <label class="form-check-label" for="masculino">Masculino</label>
+              </div>
+              <div class="form-check custom-check">
+                <input class="form-check-input" type="radio" id="otro" formControlName="genero" value="otro">
+                <label class="form-check-label" for="otro">Otro</label>
+              </div>
+            </div>
+            <div class="text-danger x-small mt-1" *ngIf="registroForm.get('genero')?.invalid && (registroForm.get('genero')?.dirty || registroForm.get('genero')?.touched || formIntentado)">
+              * Seleccione un género.
+            </div>
+          </fieldset>
+
+          <div class="mb-4">
+            <div class="form-check custom-check-box">
+              <input type="checkbox" id="terminos" formControlName="terminos" class="form-check-input"
+                     [class.is-invalid]="registroForm.get('terminos')?.invalid && (registroForm.get('terminos')?.dirty || registroForm.get('terminos')?.touched)"> 
+              <label class="form-check-label" for="terminos">Acepto los términos y condiciones del servicio</label>
+              <div class="invalid-feedback">Debe aceptar los términos para continuar.</div>
+            </div>
+          </div>
+
+          <div class="mt-5 text-center">
+            <button type="submit" class="btn btn-register-cta shadow">
+              Registrar Ahora <i class="fas fa-chevron-right ms-2 pulse-icon"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
